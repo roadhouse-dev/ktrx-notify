@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Example</string>
+    <string name="msg_no_fragment_notification_received">No fragment notification received</string>
+    <string name="label_send_fragment_notification_one">Send notification to fragment one</string>
+    <string name="msg_no_activity_notification_received">No activity notifications received</string>
+    <string name="label_send_activity_notification">Send notification to activity</string>
+    <string name="format_fragment_notifications_received">Fragment notifications received %d</string>
+    <string name="format_activity_notifications_received">Activity notifications received: %d</string>
+    <string name="label_send_fragment_notification_two">Send notification to fragment two</string>
+    <string name="label_send_fragment_notification_both">Send notification to both fragments</string>
+    <string name="label_fragment_one">Fragment One</string>
+    <string name="label_fragment_two">Fragment Two</string>
+</resources>
