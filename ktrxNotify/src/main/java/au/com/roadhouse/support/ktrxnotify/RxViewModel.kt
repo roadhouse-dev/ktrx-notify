@@ -3,7 +3,7 @@ package au.com.roadhouse.support.ktrxnotify
 import android.arch.lifecycle.ViewModel
 import io.reactivex.Observable
 
-class RxViewModel: ViewModel() {
+open class RxViewModel: ViewModel() {
 
     val notificationObservable: Observable<Notification>
         get() {
