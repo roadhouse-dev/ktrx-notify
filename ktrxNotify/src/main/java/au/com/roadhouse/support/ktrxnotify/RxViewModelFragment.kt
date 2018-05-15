@@ -3,6 +3,7 @@ package au.com.roadhouse.support.ktrxnotify
 import android.os.Bundle
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.rxkotlin.addTo
 import io.reactivex.rxkotlin.subscribeBy
 
 abstract class RxViewModelFragment<V : RxViewModel>: RxFragment(), RxViewModelOwner<V> {
@@ -23,6 +24,7 @@ abstract class RxViewModelFragment<V : RxViewModel>: RxFragment(), RxViewModelOw
                 .subscribeBy {
                     onViewModelNotification(it)
                 }
+                .addTo(notificationDisposable)
     }
 
     override fun onPause() {
