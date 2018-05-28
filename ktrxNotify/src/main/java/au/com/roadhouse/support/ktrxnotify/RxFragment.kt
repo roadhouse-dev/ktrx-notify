@@ -19,7 +19,7 @@ open class RxFragment : Fragment(), RxChildNotifications, RxParentNotifications 
         if (parentFragment != null) {
             (parentFragment as RxFragment?)?.let { rxParent ->
                 parentNotificationSubject = rxParent.notificationSubject
-                
+
                 rxParent.notificationSubject
                         .observeOn(Schedulers.io())
                         .subscribe {
