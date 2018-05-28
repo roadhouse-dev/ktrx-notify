@@ -16,12 +16,12 @@ class TestFragmentTwo : RxFragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_main, container, false)
         view.buttonSendToActivity.setOnClickListener {
-            sendNotificationToActivity(OnCompleteNotification())
+            sendNotificationToParent(OnCompleteNotification())
         }
         return view
     }
 
-    override fun onActivityNotification(notification: Notification) {
+    override fun onParentNotification(notification: Notification) {
         notificationCount++
         textViewActivityNotificationsReceived.setText(getString(R.string.format_activity_notifications_received, notificationCount))
     }

@@ -7,34 +7,39 @@ import io.reactivex.disposables.Disposable
 import io.reactivex.rxkotlin.subscribeBy
 import io.reactivex.subjects.PublishSubject
 
-open class RxActivity: AppCompatActivity() {
+open class RxActivity: AppCompatActivity(), RxParentNotifications {
 
-    internal var incomingObservable: PublishSubject<FragmentNotification> = PublishSubject.create()
-    internal var outgoingObservable: PublishSubject<ActivityNotification> = PublishSubject.create()
+    internal var notificationSubject: PublishSubject<Any> = PublishSubject.create()
     private var disposable: Disposable? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        disposable = incomingObservable
+        disposable = notificationSubject
                 .subscribeBy {
-                    onFragmentNotification(it.fragment, it.notification)
+                    onNotification(it)
                 }
+    }
+
+    private fun onNotification(it: Any){
+        if(it is ChildNotification){
+            onNotification(it)
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
         super.onCreate(savedInstanceState)
-        disposable = incomingObservable
+        disposable = notificationSubject
                 .subscribeBy {
-                    onFragmentNotification(it.fragment, it.notification)
+                    onNotification(it)
                 }
     }
 
-    open fun onFragmentNotification(fragment: RxFragment, notification: Notification){
+    override fun onChildNotification(fragment: RxFragment, notification: Notification){
         //Implement in child if required
     }
 
-    fun sendNotificationToFragment(tag: String? = null, notification: Notification) {
-        outgoingObservable.onNext(ActivityNotification(tag = tag, notification = notification))
+    override fun sendNotificationToChild(tag: String?, notification: Notification) {
+        notificationSubject.onNext(ParentNotification(tag = tag, notification = notification))
     }
 
     override fun onDestroy() {

@@ -11,13 +11,13 @@ import kotlin.reflect.KClass
 interface Notification
 
 /**
- * A wrapper class used by a RxFragment when sending notifications to its parent RxActivity. This should
+ * A wrapper class used by a RxFragment when sending notifications to its parentNotificationSubject RxActivity. This should
  * not be used directly.
  *
  * @property fragment The fragment that sent the notification. Due to the nature of fragments consider
  * the reference to this fragment only valid within the method.
  */
-data class FragmentNotification(val fragment: RxFragment, val notification: Notification)
+data class ChildNotification(val fragment: RxFragment, val notification: Notification)
 
 /**
  * A wrapper class used by RxActivity when sending notifications to a child fragment. This should not
@@ -26,16 +26,16 @@ data class FragmentNotification(val fragment: RxFragment, val notification: Noti
  * @property tag The tag of the fragment that this notification should be sent to. A null value
  * will cause the notification to be sent to all attached fragments that are in a resumed state
  */
-data class ActivityNotification(val tag: String?, val notification: Notification)
+data class ParentNotification(val tag: String?, val notification: Notification)
 
 /**
- * A notification that is typically sent by a RxFragment to its parent RxActivity to indicate that
+ * A notification that is typically sent by a RxFragment to its parentNotificationSubject RxActivity to indicate that
  * the Fragment has finished it's purpose successfully.
  */
 class OnCompleteNotification: Notification
 
 /**
- * A notification that is typically sent by a RxFragment to its parent RxActivity to indicate that
+ * A notification that is typically sent by a RxFragment to its parentNotificationSubject RxActivity to indicate that
  * the fragment has been cancelled, either by the back button or some other view element
  */
 class OnCanceledNotification: Notification

@@ -22,19 +22,19 @@ class MainActivity : RxActivity() {
 
         }
         buttonSendToFragment.setOnClickListener {
-            sendNotificationToFragment("Test", OnCompleteNotification())
+            sendNotificationToChild("Test", OnCompleteNotification())
         }
 
         buttonSendToFragmentTwo.setOnClickListener {
-            sendNotificationToFragment("Test2", OnCompleteNotification())
+            sendNotificationToChild("Test2", OnCompleteNotification())
         }
 
         buttonSendToFragmentBoth.setOnClickListener {
-            sendNotificationToFragment(notification = OnCompleteNotification())
+            sendNotificationToChild(notification = OnCompleteNotification())
         }
     }
 
-    override fun onFragmentNotification(fragment: RxFragment, notification: Notification) {
+    override fun onChildNotification(fragment: RxFragment, notification: Notification) {
         notificationsReceived++
         textViewFragmentNotificationsReceived.setText(getString(R.string.format_fragment_notifications_received, notificationsReceived))
     }
