@@ -23,7 +23,7 @@ open class RxActivity: AppCompatActivity(), RxParentNotifications {
 
     private fun onNotification(it: Any){
         if(it is ChildNotification){
-            onNotification(it)
+            onChildNotification(it.fragment, it.notification)
         }
     }
 
