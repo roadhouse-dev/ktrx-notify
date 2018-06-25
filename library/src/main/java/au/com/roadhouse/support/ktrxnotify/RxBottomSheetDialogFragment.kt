@@ -62,7 +62,7 @@ abstract class RxBottomSheetDialogFragment : Fragment(), RxChildNotifications, R
         //Override were required
     }
 
-    override fun onChildNotification(fragment: RxBottomSheetDialogFragment, notification: Notification) {
+    override fun onChildNotification(fragment: Fragment, notification: Notification) {
         //Override were required
     }
 

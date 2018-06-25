@@ -2,6 +2,7 @@ package au.com.roadhouse.support.ktrxnotify
 
 import android.app.Activity
 import android.os.Bundle
+import android.support.v4.app.Fragment
 import kotlin.reflect.KClass
 
 /**
@@ -17,7 +18,7 @@ interface Notification
  * @property fragment The fragment that sent the notification. Due to the nature of fragments consider
  * the reference to this fragment only valid within the method.
  */
-data class ChildNotification(val fragment: RxFragment, val notification: Notification)
+data class ChildNotification(val fragment: Fragment, val notification: Notification)
 
 /**
  * A wrapper class used by RxActivity when sending notifications to a child fragment. This should not

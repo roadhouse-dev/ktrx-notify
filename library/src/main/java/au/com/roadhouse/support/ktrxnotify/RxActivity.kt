@@ -2,6 +2,7 @@ package au.com.roadhouse.support.ktrxnotify
 
 import android.os.Bundle
 import android.os.PersistableBundle
+import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import io.reactivex.disposables.Disposable
 import io.reactivex.rxkotlin.subscribeBy
@@ -34,7 +35,7 @@ open class RxActivity: AppCompatActivity(), RxParentNotifications {
                 }
     }
 
-    override fun onChildNotification(fragment: RxFragment, notification: Notification){
+    override fun onChildNotification(fragment: Fragment, notification: Notification){
         //Implement in child if required
     }
 

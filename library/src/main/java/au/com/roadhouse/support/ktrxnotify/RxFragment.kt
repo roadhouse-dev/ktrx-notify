@@ -1,6 +1,7 @@
 package au.com.roadhouse.support.ktrxnotify
 
 import android.support.design.widget.BottomSheetDialogFragment
+import android.support.v4.app.Fragment
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.addTo
@@ -62,7 +63,7 @@ open class RxFragment : BottomSheetDialogFragment(), RxChildNotifications, RxPar
         //Override were required
     }
 
-    override fun onChildNotification(fragment: RxFragment, notification: Notification) {
+    override fun onChildNotification(fragment: Fragment, notification: Notification) {
         //Override were required
     }
 
