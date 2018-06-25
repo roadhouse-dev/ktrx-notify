@@ -11,7 +11,7 @@ import io.reactivex.subjects.PublishSubject
 
 open class RxFragment : BottomSheetDialogFragment(), RxChildNotifications, RxParentNotifications {
 
-    private var notificationSubject: PublishSubject<Any> = PublishSubject.create()
+    internal var notificationSubject: PublishSubject<Any> = PublishSubject.create()
     internal var parentNotificationSubject:PublishSubject<Any>? = null
     private var disposables = CompositeDisposable()
 
