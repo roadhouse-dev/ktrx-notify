@@ -8,7 +8,7 @@ import io.reactivex.rxkotlin.subscribeBy
 import io.reactivex.schedulers.Schedulers
 import io.reactivex.subjects.PublishSubject
 
-open class RxBottomSheetDialogFragment : Fragment(), RxChildNotifications, RxParentNotifications {
+abstract class RxBottomSheetDialogFragment : Fragment(), RxChildNotifications, RxParentNotifications {
 
     private var notificationSubject: PublishSubject<Any> = PublishSubject.create()
     internal var parentNotificationSubject:PublishSubject<Any>? = null
