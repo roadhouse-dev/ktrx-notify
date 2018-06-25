@@ -1,1 +1,1 @@
-include ':example', ':ktrxNotify'
+include ':example', ':library'

@@ -1,6 +1,6 @@
 package au.com.roadhouse.support.ktrxnotify
 
-import android.support.v4.app.Fragment
+import android.support.design.widget.BottomSheetDialogFragment
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.addTo
@@ -8,7 +8,7 @@ import io.reactivex.rxkotlin.subscribeBy
 import io.reactivex.schedulers.Schedulers
 import io.reactivex.subjects.PublishSubject
 
-open class RxFragment : Fragment(), RxChildNotifications, RxParentNotifications {
+open class RxFragment : BottomSheetDialogFragment(), RxChildNotifications, RxParentNotifications {
 
     private var notificationSubject: PublishSubject<Any> = PublishSubject.create()
     internal var parentNotificationSubject:PublishSubject<Any>? = null
