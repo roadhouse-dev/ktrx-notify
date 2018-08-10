@@ -2,8 +2,8 @@ package au.com.roadhouse.support.ktrxnotify
 
 import android.os.Bundle
 import android.os.PersistableBundle
-import android.support.v4.app.Fragment
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import io.reactivex.disposables.Disposable
 import io.reactivex.rxkotlin.subscribeBy
 import io.reactivex.subjects.PublishSubject
