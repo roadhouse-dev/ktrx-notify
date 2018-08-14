@@ -1,6 +1,7 @@
 package au.com.roadhouse.support.ktrxnotify
 
 import android.app.Activity
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import kotlin.reflect.KClass
@@ -90,4 +91,17 @@ class LoadingNotification(val isComplete: Boolean): Notification
  */
 class StartActivityNotification(
         val activity: KClass<out Activity>,
+        val extras: Bundle = Bundle.EMPTY): Notification
+
+/**
+ * A notification that is typically sent to the viewModel's owner to indicate that an action based
+ * activity should be started
+ *
+ * @property action The action to be started
+ * @property data The url associated with the action
+ * @property extras Any extras that are required to launch the action
+ */
+class StartActionNotification(
+        val action: String,
+        val data: Uri? = null,
         val extras: Bundle = Bundle.EMPTY): Notification
