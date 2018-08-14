@@ -1,6 +1,6 @@
 package au.com.roadhouse.support.ktrxnotify
 
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.ViewModel
 import io.reactivex.Observable
 
 open class RxViewModel: ViewModel() {
