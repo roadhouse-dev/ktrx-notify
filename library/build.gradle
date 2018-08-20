@@ -30,7 +30,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-
+6
     implementation "androidx.appcompat:appcompat:$support_version"
     implementation "io.reactivex.rxjava2:rxjava:$rxjava_version"
     implementation 'io.reactivex.rxjava2:rxkotlin:2.2.0'
