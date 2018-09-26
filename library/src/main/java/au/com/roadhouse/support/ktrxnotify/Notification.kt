@@ -104,4 +104,5 @@ class StartActivityNotification(
 class StartActionNotification(
         val action: String,
         val data: Uri? = null,
+        val type: String = null,
         val extras: Bundle = Bundle.EMPTY): Notification
